@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-2" id="userList-table">
+      <h1>User List</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for( let i = 0; i < user.length; i++ ) { %>
+            <tr id="<%= user[i].id %>">
+              <th scope="row"><%= i + 1 %></th>
+              <td><%= user[i].username %></td>
+              <td>
+                <button type="submit" class="btn btn-danger" onclick=userDelete(<%= user[i].id %>)>Delete</button>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="d-flex">
+    <div class="col-4 offset-1">
+      <h1 class="mb-3 mt-3">Create New User</h1>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+        </div>
+        <input id="newUsername" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Age</span>
+        </div>
+        <input id="newAge" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">City</span>
+        </div>
+        <input id="newCity" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Nationality</span>
+        </div>
+        <input id="newNationality" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <button type="button" class="btn btn-primary" onclick=handleNewUser()>Create</button>
+    </div>
+
+    <div class="col-4 offset-1">
+      <h1 class="mb-3 mt-3">Search User Info by Username</h1>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+        </div>
+        <input id="findUsername" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Search by Username">
+      </div>
+      <button type="button" class="btn btn-primary" onclick=searchByUsername()>Search</button>
+    </div>
+  </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>

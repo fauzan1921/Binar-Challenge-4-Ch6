@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="col-4 offset-1">
+    <h1 class="mb-3 mt-3">User Info and Edit</h1>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+        </div>
+        <input id="username" value="<%= userInfo.username %>" disabled="true" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Age</span>
+        </div>
+        <input id="age" value="<%= userInfo.user_biodatum.age %>" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">City</span>
+        </div>
+        <input id="city" value="<%= userInfo.user_biodatum.city %>" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Nationality</span>
+        </div>
+        <input id="nationality" value="<%= userInfo.user_biodatum.nationality %>" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <button type="button" class="btn btn-primary" onclick=editUser(<%= userInfo.user_biodatum.id %>)>Edit</button>
+    </div>
+    </div>
+
+    <div class="container mt-5" id="scoreList-table">
+      <h1>Score</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for( let i = 0; i < userScore.length; i++ ) { %>
+            <tr>
+              <th scope="row"><%= i + 1 %></th>
+              <td><%= userScore.score %></td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
